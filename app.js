@@ -14,8 +14,7 @@ const express = require('express') //Responsável pela API
 const cors = require('cors') //Responsável pelas Permissões da API (APP)
 const bodyParser = require('body-parser') //Responsável por Gerenciar a chegada dos dados da API com o front 
 
-const dados = require ('./modulos/contatos.js')
-const dados = require ('./modulos/funcoes.js')
+const dados = require('./modulos/funcoes.js')
 
 //retorna a porta do servidor atual ou colocamos um porta local 
 const PORT = process.PORT || 7070
@@ -44,5 +43,11 @@ app.get('/v1/whatsapp', (request, response) => {
     response.status(contatos.status_code)
     //retorna o JSON
     response.json(estados)
+    console.log(getAllContatos)
 
     })
+
+    app.listen(PORT, () =>{
+        console.log('API aguardando requisições...')
+        console.log(getAllContatos)
+})

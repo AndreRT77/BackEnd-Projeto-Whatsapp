@@ -12,7 +12,7 @@ const MESSAGE_ERRO = {
     development: 'André Roberto Tavares'
 }
 //Import do arquivo de estados e cidades
-const dados = require('./contatos.js')
+const dados = require('./modulos/contatos.js')
 
 //Retorna Todos os Estados
 const getAllContatos = function(){
@@ -23,18 +23,22 @@ const getAllContatos = function(){
         development: 'André Roberto Tavares',
         uf : []
     }
-    //Loop
-    dados.listaDeContatos.contatos.forEach(function(item){
-        message.uf.push(item)
+    //LooporEach(function(item){
+    dados.listaDeContatos.whats-users.forEach(function(item){
+        message.push(item)
     })
         //Para adicionar um elemento novo no JSON
     message.quantidade =  message.uf.length
-    
+
 
 
     if(message.uf.length > 0 )
         return message //Verdadeiro 200
     else
         return MESSAGE_ERRO //False 500
-    
+
+}
+
+module.exports = {
+    getAllContatos
 }
